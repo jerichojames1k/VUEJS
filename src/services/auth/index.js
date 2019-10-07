@@ -41,14 +41,7 @@ export default {
         });
         var p = JSON.parse(JSON.stringify(this.courses))
         console.log(p)
-    },
-    // getCourse(){
-    //     for(let i = 0; i<this.courses.length-1; i++){
-             
-    //         return this.courses[i]
-    //     }
-       
-    // }  
+    }, 
     editProfile(){
         ROUTER.push('/edit')
     },
