@@ -6,6 +6,7 @@
     <center>
       <b-card text-align id="card" img-top tag="article" style="max-width: 30rem;" class="mb-2">
         <b-form-group label-size="lg" label-for="input-lg">
+          <b-img :src="require('assets/jericho.png')" rounded="circle" alt="Circle image" id="course"></b-img><br><br>
           <label id="Subject">Subject:</label>
           <b-form-input v-model="infos.subject" id="subject" size="lg"></b-form-input>
           <label id="teacher">Teacher:</label>
@@ -19,8 +20,10 @@
           <label id="room">Room:</label>
           <b-form-input v-model="infos.room" id="room" size="lg"></b-form-input>
           <br>
-          <b-button variant="primary" @click="addItem"
-           >Add Subject</b-button>
+          <b-button variant="primary" @click="addItem">Add Subject</b-button>
+           <br><br>
+           <b-form-input v-model="deletecourse" id="delete" size="lg" placeholder="Type subject to remove"></b-form-input><br>
+          <b-button variant="primary" @click="remove">Remove Subject</b-button>
         </b-form-group>
       </b-card>
       <b-card text-align id="card1" img-top tag="article" style="max-width: 40rem;" class="mb-2">
@@ -41,7 +44,6 @@
               <td>{{ item.time }}</td>
               <td>{{ item.day }}</td>
               <td>{{ item.room }}</td>
-
             </tr>
           </tbody>
         </table>
@@ -49,8 +51,6 @@
     </center>
   </div>
 </template>
-
-
 <style>
 #card {
   margin-top: 20px;
@@ -59,6 +59,10 @@
   padding: 20px;
   text-align: center;
 }
+  #course{
+  width:20%;
+  height:auto;
+}
 </style>
 
 <script>
@@ -66,6 +70,7 @@ export default {
    data() {
     return {
         rows:[],
+        deletecourse:"",
       infos: {
         subject: "",
         teacher: "",
@@ -84,13 +89,24 @@ export default {
         day: this.infos.day,
         room: this.infos.room
       };
-      this.rows.push( object )
+      this.rows.push(object)
       this.infos.subject = ""
       this.infos.teacher = ""
       this.infos.time = ""
       this.infos.day= ""
       this.infos.room = ""
-    }
+    },
+  //Remove
+   remove(){
+     for(let i = 0; i < this.rows.length; i++){
+           if(this.rows[i].subject === this.deletecourse){
+              this.rows.splice(this.rows.indexOf(this.rows[i].subject),1)
+           }
+           else{
+             console.log("It is not the same")
+           }
+        }
+     }
   }
 };
 </script>

@@ -1,8 +1,7 @@
 import ROUTER from 'router';
-
 export default {
     user: null,
-    registeredUser: [],
+    registeredUser:[],
     courses:[],
     setUser(user){
         this.user = user
@@ -10,18 +9,19 @@ export default {
     getUser(user){
         return this.user = user;
     },
-    register(username, password){
+    register(email, password){
         this.registeredUser.push({
-            username: username,
+            email: email,
             password: password,
         })
         // var p = JSON.parse(JSON.stringify(this.registeredUser))
         // console.log(p)
         ROUTER.push('/login')
     },
-    login(username,password){
+    login(email,password){
+        console.log(this.registeredUser)
         for(let i = 0; i < this.registeredUser.length; i++){
-            if(this.registeredUser[i].username === username && this.registeredUser[i].password === password){
+            if(this.registeredUser[i].email === email && this.registeredUser[i].password === password){
                 ROUTER.push('/dashboard')
                 return this.registeredUser[i]           
             }else{
@@ -51,5 +51,12 @@ export default {
     // }  
     editProfile(){
         ROUTER.push('/edit')
+    },
+    save(email,password){
+        for(let i = 0; i < this.registeredUser.length; i++){
+            this.registeredUser[i].email=email,
+            this.registeredUser[i].password=password
+        }
+        ROUTER.push('/personalinformation')
     }
 }

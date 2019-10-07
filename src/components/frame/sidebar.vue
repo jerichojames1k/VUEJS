@@ -1,5 +1,5 @@
 <template>
-  <sidebar-menu :menu="menu" />
+  <sidebar-menu :menu="menu" id="sidebar"/>
 </template>
  
  <script>
@@ -25,7 +25,11 @@
                         title: 'Personal Information',
                         icon: 'fa fa-user'
                     },
-                    
+                     {
+                        href: '/edit',
+                        title: 'Update Profile',
+                        icon: 'fa fa-user'
+                    },
                     {
                         href: '/courses',
                         title: 'Add Course & Subjects',
@@ -53,4 +57,9 @@
         }
     }
 </script> 
-   
+<style>
+#sidebar{
+    margin-top:56px;
+    width:250px;
+}
+</style>

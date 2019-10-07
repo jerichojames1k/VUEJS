@@ -9,6 +9,7 @@
         <b-col id="top" cols = "8">
 
         <b-form @submit="onSubmit">
+          <b-img :src="require('assets/user.png')" rounded="circle" alt="Circle image" id="register"></b-img>
           <b-form-group id="input-group-0" label="Username" label-for="input-0">
             <b-form-input id="input-0" v-model="form.username" type="text" required placeholder="Username"></b-form-input>
           </b-form-group>
@@ -76,7 +77,10 @@ export default {
   text-align: center;
   margin-top: 60px;
 }
-
+#register {
+  width:23%;
+  height:auto;
+}
 #row{
   width:500px;
   height:300px;

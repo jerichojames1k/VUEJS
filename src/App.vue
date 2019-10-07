@@ -1,12 +1,8 @@
 <template>
   <div id="app">
-    <Header
-      v-show="$route.name==='register' || $route.name==='login' || $route.path === '/' ? true : false"
-    ></Header>
+    <Header></Header>
     <AppBody></AppBody>
-    <SidebarMenu
-      v-show="$route.path==='/dashboard' || $route.path === '/personalinformation' || $route.path === '/courses' ? true : false"
-    >
+    <SidebarMenu v-show="$route.path==='/dashboard' || $route.path === '/personalinformation' || $route.path === '/edit' || $route.path === '/courses' ? true : false">
       <div slot="header">header</div>
       <div slot="footer">footer</div>
       <span

@@ -9,6 +9,7 @@
         <b-col id="top" cols = "8">
 
         <b-form @submit="onSubmit">
+          <b-img :src="require('assets/jericho.png')" rounded="circle" alt="Circle image" id="edit"></b-img><br><br>
           <b-form-group id="input-group-0" label="Username" label-for="input-0">
             <b-form-input id="input-0" v-model="form.username" type="text" required placeholder="Username"></b-form-input>
           </b-form-group>
@@ -21,7 +22,7 @@
             <b-form-input id="input-2" v-model="form.password" required placeholder="Password" type="password"></b-form-input>
           </b-form-group>
           
-          <b-button id="login" type="submit" block variant="primary">Edit</b-button><br>
+          <b-button id="login" type="submit" block variant="primary">Save Changes</b-button><br>
         </b-form>
 
         </b-col>
@@ -55,8 +56,7 @@ export default {
       sessionStorage.setItem("Password", this.form.password)
       sessionStorage.setItem("Username", this.form.username)
       sessionStorage.setItem("Email", this.form.email)
-      AUTH.register(this.form.email, this.form.password)
-      // ROUTER.push('/login')
+      AUTH.save(this.form.email,this.form.password)
     }
   }
 };
@@ -72,11 +72,12 @@ export default {
   text-align: center;
   margin-top: 60px;
 }
-
 #row{
   width:500px;
   height:300px;
 }
-/* #login {length: 20px; } */
-
+#edit{
+  width:25%;
+  height:auto;
+}
 </style>

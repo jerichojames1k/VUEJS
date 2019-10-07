@@ -4,7 +4,6 @@
     <br>
     <!-- <br> -->
     <b-form-group @submit="onSubmit">
-      <b-button type="submit" variant="outline-primary" id="editBtn">Edit Profile</b-button>
     </b-form-group>
     <div class="mt-3">
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
@@ -16,8 +15,9 @@
             <b-card-body title="Personal Information">
               <b-card-text>Name: {{Uname}}</b-card-text>
               <b-card-text>Email: {{Email}}</b-card-text>
-              <b-card-text>Password: ******</b-card-text>
+              <b-card-text>Password:{{Password}}</b-card-text>
             </b-card-body>
+            <!-- <b-button type="submit" variant="outline-primary" id="editBtn">Edit Profile</b-button> -->
           </b-col>
         </b-row>
       </b-card>
@@ -45,7 +45,7 @@ b-card-text {
 </style>
 
 <script>
-// import ROUTER from 'router'
+import ROUTER from 'router'
 import AUTH from 'services/auth'
 export default {
   data() {
@@ -53,13 +53,13 @@ export default {
       auth: AUTH,
       Uname: sessionStorage.getItem("Username"),
       Email: sessionStorage.getItem("Email"),
-      Pass: sessionStorage.getItem("Password")
+      Password: sessionStorage.getItem("Password")
     };
   },
   methods:{
     onSubmit(e){
       e.preventDefault()
-      AUTH.editProfile()
+      //AUTH.editProfile()
       // ROUTER.push('/edit')
     }
   }
