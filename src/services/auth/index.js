@@ -16,7 +16,7 @@ export default {
         })
         // var p = JSON.parse(JSON.stringify(this.registeredUser))
         // console.log(p)
-        ROUTER.push('/login')
+       ROUTER.push('/login')
     },
     login(email,password){
         console.log(this.registeredUser)
